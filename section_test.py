@@ -5,10 +5,10 @@ import pytest
 class Test_２つの整数を引数に閉区間オブジェクトをつくる:
     def test_3から8の閉区間を作れる(self):
         x=section.Section(3,8)
-        assert [3,8] == x.val
+        assert x.lower==3 and x.upper==8
     def test_3から8の閉区間を作れる(self):
         x=section.Section(3,3)
-        assert [3,3] == x.val
+        assert x.lower==3 and x.upper==3
 
 # 作成(例外処理)
 class Test_整数以外では閉区間オブジェクトをつくれない:
@@ -35,7 +35,7 @@ class Test_始点の方が大きい閉区間は作れない:
 class Test_閉区間オブジェクトは文字列表現を返す:
     def test_3から8の閉区間の文字列表現を返せる(self):
         x=section.Section(3,8)
-        #assert isinstance(x.toString(),str)
+        assert isinstance(x.toString(),str)
         assert str([3,8]) == x.toString()
 
 class Test_閉区間オブジェクトは指定した整数を含むかどうかを判定できる:
